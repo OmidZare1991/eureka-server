@@ -1,0 +1,19 @@
+---
+spring:
+#  profiles:
+#    active: secondary
+  application:
+    name: eureka-server-clustered
+server:
+  port: 8012
+eureka:
+  instance:
+    hostname: eureka-secondary
+    lease-renewal-interval-in-seconds: 0
+  #    status-page-url-path: ${management.contextPath}/info
+#    health-check-url-path: ${management.contextPath}/health
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://eureka-tertiary:8013/eureka/,http://eureka-primary:8011/eureka/
