@@ -1,7 +1,9 @@
 ---
 # This default profile is used when running a single instance completely standalone:
 spring:
-  profiles: default
+  config:
+    activate:
+      on-profile: default
 server:
   port: 8010
 eureka:
@@ -30,8 +32,11 @@ spring:
 server:
   port: 8011
 eureka:
+  server:
+    peer-node-connect-timeout-ms: 1000
   instance:
     hostname: eureka-primary
+    prefer-ip-address: false
   client:
     registerWithEureka: true
     fetchRegistry: true
@@ -48,8 +53,11 @@ spring:
 server:
   port: 8012
 eureka:
+  server:
+    peer-node-connect-timeout-ms: 1000
   instance:
     hostname: eureka-secondary
+    prefer-ip-address: false
   client:
     registerWithEureka: true
     fetchRegistry: true
@@ -66,8 +74,11 @@ spring:
 server:
   port: 8013
 eureka:
+  server:
+    peer-node-connect-timeout-ms: 1000
   instance:
     hostname: eureka-tertiary
+    prefer-ip-address: false
   client:
     registerWithEureka: true
     fetchRegistry: true
